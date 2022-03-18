@@ -151,7 +151,12 @@ function initAgGrid(el) {
   
   const gridOptions = {
 	columnDefs: createAgGridColumnDefs(taskData),
-	rowData: rowData
+	rowData: rowData,
+	pagination: true,
+	paginationPageSize: 4,
+	defaultColDef: {
+	  resizable: true,
+	},
   };
   
   const hiddenColumns = [
@@ -181,6 +186,7 @@ function initAgGrid(el) {
 	this.columnApi = that.gridOptions.columnApi;
 	this.gridOptions.columnApi.setColumnVisible('REQCONTEXT', false);*/
 	gridOptions.columnApi.setColumnsVisible(hiddenColumns, false);
+	gridOptions.api.sizeColumnsToFit();
   }
   
   //console.log('data.js: columnDefs: ', columnDefs);
