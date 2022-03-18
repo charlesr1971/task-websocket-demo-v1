@@ -1,0 +1,16 @@
+.mdl-layout__header .mdl-layout__drawer-button {
+  background-color: transparent; 
+  top: 10px;
+}
+
+.light {
+  background: rgba(0,0,0,0.0125);
+}
+
+.container {
+  padding: 20px;
+}
+
+.mdl-data-table {
+  width: 100%;
+}
