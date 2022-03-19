@@ -202,10 +202,10 @@ function initAgGrid(el) {
 	  resizable: true,
 	},
 	onGridSizeChanged: (params) => {
-	  console.log(params);
+	  console.log('data.js: initAgGrid(): onGridSizeChanged(): params: ', params);
 	},
 	onColumnResized: (params) => {
-	  console.log(params);
+	  console.log('data.js: initAgGrid(): onColumnResized(): params: ', params);
 	}
   };
   
