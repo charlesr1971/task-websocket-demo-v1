@@ -38,3 +38,13 @@
 .update-header-text-center .ag-header-cell-label {
   justify-content: center !important;
 }
+
+.mdl-layout-title {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 40px;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
