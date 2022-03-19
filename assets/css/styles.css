@@ -14,3 +14,27 @@
 .mdl-data-table {
   width: 100%;
 }
+
+/*.ag-cell {
+  text-align: center;
+}
+
+.grid-cell-centered {
+  text-align: center;
+}*/
+
+.ag-header-cell.text-center .ag-header-cell-label {
+  top: 8px;
+  justify-content: center;
+}
+
+/*.ag-header-cell-label {
+}
+
+.ag-header-group-cell-label {
+  justify-content: center !important;
+}*/
+
+.update-header-text-center .ag-header-cell-label {
+  justify-content: center !important;
+}

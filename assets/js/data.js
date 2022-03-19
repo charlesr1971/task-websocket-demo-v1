@@ -20,7 +20,9 @@ const taskData = [
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
-    tenantId: null
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
   },
   {
     id: "task-101",
@@ -43,7 +45,9 @@ const taskData = [
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
-    tenantId: null
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
   },
   {
     id: "task-102",
@@ -66,7 +70,9 @@ const taskData = [
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
-    tenantId: null
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
   },
   {
     id: "task-103",
@@ -89,7 +95,9 @@ const taskData = [
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
-    tenantId: null
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
   },
   {
     id: "task-104",
@@ -112,9 +120,21 @@ const taskData = [
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
-    tenantId: null
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
   }
 ];
+
+const columnCentered = {
+  headerClass: 'text-center',
+  cellStyle: {
+    textAlign: 'center',
+    // Add the following if you are using .ag-header-cell-menu-button 
+    // and column borders are set to none.
+    // marginLeft: '-16px'
+  }
+}
 
 function getObjectkeys(obj) {
   return Object.keys(obj);
@@ -123,10 +143,42 @@ function getObjectkeys(obj) {
 function createAgGridColumnDefs(obj) {
   const keys = getObjectkeys(obj[0]);
   const columnDefs = [];
-  const rows = keys.map( (key) => {
+  /*const rows = keys.map( (key) => {
 	columnDefs.push({
 	  field: key
 	});
+  });*/
+  columnDefs.push({
+	field: 'id'
+  });
+  columnDefs.push({
+	field: 'name'
+  });
+  columnDefs.push({
+	field: 'assignee'
+  });
+  columnDefs.push({
+	field: 'created'
+  });
+  columnDefs.push({
+	field: 'update',
+	cellRenderer: function(params) {
+	  return '<a href="javascript:void(0);" onclick="sendUpdate(\'' + params.data.id + '\')">' + params.value + '</a>'
+	},
+	//cellStyle: {top: '8px'},
+	//headerName: 'Update',
+	headerClass: 'update-header-text-center',
+	cellStyle: {
+	  textAlign: 'center',
+	  top: '8px'
+	}
+  });
+  columnDefs.push({
+	field: 'status',
+	headerClass: 'update-header-text-center',
+	cellStyle: {
+	  textAlign: 'center'
+	}
   });
   return columnDefs;
 }
@@ -176,7 +228,8 @@ function initAgGrid(el) {
     'caseDefinitionId',
     'suspended',
     'formKey',
-    'tenantId'
+    'tenantId',
+	'update'
   ];
   
   const grid = new agGrid.Grid(el, gridOptions);
@@ -185,7 +238,7 @@ function initAgGrid(el) {
 	/*...snip
 	this.columnApi = that.gridOptions.columnApi;
 	this.gridOptions.columnApi.setColumnVisible('REQCONTEXT', false);*/
-	gridOptions.columnApi.setColumnsVisible(hiddenColumns, false);
+	//gridOptions.columnApi.setColumnsVisible(hiddenColumns, false);
 	gridOptions.api.sizeColumnsToFit();
   }
   
