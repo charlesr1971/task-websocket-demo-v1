@@ -149,16 +149,20 @@ function createAgGridColumnDefs(obj) {
 	});
   });*/
   columnDefs.push({
-	field: 'id'
+	field: 'id',
+	suppressSizeToFit: false
   });
   columnDefs.push({
-	field: 'name'
+	field: 'name',
+	suppressSizeToFit: false
   });
   columnDefs.push({
-	field: 'assignee'
+	field: 'assignee',
+	suppressSizeToFit: false
   });
   columnDefs.push({
-	field: 'created'
+	field: 'created',
+	suppressSizeToFit: false
   });
   columnDefs.push({
 	field: 'update',
@@ -171,31 +175,19 @@ function createAgGridColumnDefs(obj) {
 	cellStyle: {
 	  textAlign: 'center',
 	  top: '8px'
-	}
+	},
+	suppressSizeToFit: false
   });
   columnDefs.push({
 	field: 'status',
 	headerClass: 'update-header-text-center',
 	cellStyle: {
 	  textAlign: 'center'
-	}
+	},
+	suppressSizeToFit: false
   });
   return columnDefs;
 }
-
-/*function createAgGridRowData(obj) {
-  const keys = getObjectkeys(obj[0]);
-  const rows = [];
-  obj.map( (item) => {
-	  
-	keys.map( (key) => {
-	  columnDefs.push({
-		key: key
-	  });
-	});
-  });
-  return columnDefs;
-}*/
 
 function initAgGrid(el) {
 	
@@ -209,6 +201,12 @@ function initAgGrid(el) {
 	defaultColDef: {
 	  resizable: true,
 	},
+	onGridSizeChanged: (params) => {
+	  console.log(params);
+	},
+	onColumnResized: (params) => {
+	  console.log(params);
+	}
   };
   
   const hiddenColumns = [
@@ -235,27 +233,19 @@ function initAgGrid(el) {
   const grid = new agGrid.Grid(el, gridOptions);
   
   gridOptions.onGridReady = () => {
-	/*...snip
-	this.columnApi = that.gridOptions.columnApi;
-	this.gridOptions.columnApi.setColumnVisible('REQCONTEXT', false);*/
-	//gridOptions.columnApi.setColumnsVisible(hiddenColumns, false);
 	gridOptions.api.sizeColumnsToFit();
   }
   
-  //console.log('data.js: columnDefs: ', columnDefs);
+  function autoSizeAll() {
+	/*const allColumnIds = [];
+	gridOptions.columnApi.getAllColumns().forEach((column) => {
+	  allColumnIds.push(column.getId());
+	});
+  
+	gridOptions.columnApi.autoSizeColumns(allColumnIds, true);*/
+	gridOptions.api.sizeColumnsToFit();
+  }
+  
+  window.addEventListener("resize", autoSizeAll);
 
 }
-
-
-/*const columnDefs = [
-  { field: "make" },
-  { field: "model" },
-  { field: "price" }
-];
-
-// specify the data
-const rowData = [
-  { make: "Toyota", model: "Celica", price: 35000 },
-  { make: "Ford", model: "Mondeo", price: 32000 },
-  { make: "Porsche", model: "Boxter", price: 72000 }
-];*/
