@@ -1,97 +1,150 @@
-const taskData = [
+const taskDataCreate = [
   {
-    id: "task-100",
-    name: "My Task 100",
-    assignee: "john",
-    created: "2021-06-08T09:39:26.341+0000",
-    due: "2014-08-30T08:00:00.000+0000",
-    followUp: "2014-08-25T08:00:00.000+0000",
-    delegationState: "PENDING",
-    description: "This have to be done soon",
+    id: 'task-100',
+    name: 'My Task 100',
+    assignee: 'john',
+    created: '2021-06-08T09:39:26.341+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This have to be done soon',
     executionId: null,
-    owner: "alicia",
+    owner: 'alicia',
     parentTaskId: null,
     priority: 10,
     processDefinitionId: null,
     processInstanceId: null,
     taskDefinitionKey: null,
     caseExecutionId: null,
-    caseInstanceId: "aCaseInstanceId",
+    caseInstanceId: 'aCaseInstanceId',
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
-	status: 'pending'
+	status: 'created'
   },
   {
-    id: "task-101",
-    name: "My Task 101",
-    assignee: "peter",
-    created: "2021-06-08T11:01:02.901+0000",
-    due: "2014-08-30T08:00:00.000+0000",
-    followUp: "2014-08-25T08:00:00.000+0000",
-    delegationState: "PENDING",
-    description: "This have to be done one day",
+    id: 'task-101',
+    name: 'My Task 101',
+    assignee: 'peter',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This have to be done one day',
     executionId: null,
-    owner: "larry",
+    owner: 'larry',
     parentTaskId: null,
     priority: 30,
     processDefinitionId: null,
     processInstanceId: null,
     taskDefinitionKey: null,
     caseExecutionId: null,
-    caseInstanceId: "aCaseInstanceId",
+    caseInstanceId: 'aCaseInstanceId',
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
-	status: 'pending'
+	status: 'created'
   },
   {
-    id: "task-102",
-    name: "My Task 102",
-    assignee: "alan",
-    created: "2021-06-08T11:01:02.901+0000",
-    due: "2014-08-30T08:00:00.000+0000",
-    followUp: "2014-08-25T08:00:00.000+0000",
-    delegationState: "PENDING",
-    description: "This have to be done in the near future",
+    id: 'task-102',
+    name: 'My Task 102',
+    assignee: 'alan',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This have to be done in the near future',
     executionId: null,
-    owner: "andrew",
+    owner: 'andrew',
     parentTaskId: null,
     priority: 20,
     processDefinitionId: null,
     processInstanceId: null,
     taskDefinitionKey: null,
     caseExecutionId: null,
-    caseInstanceId: "aCaseInstanceId",
+    caseInstanceId: 'aCaseInstanceId',
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
-	status: 'pending'
+	status: 'created'
   },
   {
-    id: "task-103",
-    name: "My Task 103",
-    assignee: "william",
-    created: "2021-06-08T11:01:02.901+0000",
-    due: "2014-08-30T08:00:00.000+0000",
-    followUp: "2014-08-25T08:00:00.000+0000",
-    delegationState: "PENDING",
-    description: "This have to be done never",
+    id: 'task-103',
+    name: 'My Task 103',
+    assignee: 'william',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This have to be done never',
     executionId: null,
-    owner: "patricia",
+    owner: 'patricia',
     parentTaskId: null,
     priority: 30,
     processDefinitionId: null,
     processInstanceId: null,
     taskDefinitionKey: null,
     caseExecutionId: null,
-    caseInstanceId: "aCaseInstanceId",
+    caseInstanceId: 'aCaseInstanceId',
+    caseDefinitionId: null,
+    suspended: false,
+    formKey: null,
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'created'
+  },
+  {
+    id: 'task-104',
+    name: 'My Task 104',
+    assignee: 'charles',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This have to be done atonce',
+    executionId: null,
+    owner: 'mary',
+    parentTaskId: null,
+    priority: 10,
+    processDefinitionId: null,
+    processInstanceId: null,
+    taskDefinitionKey: null,
+    caseExecutionId: null,
+    caseInstanceId: 'aCaseInstanceId',
+    caseDefinitionId: null,
+    suspended: false,
+    formKey: null,
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'created'
+  }
+];
+
+const taskDataUpdate = [
+  {
+    id: 'task-105',
+    name: 'My Task 105',
+    assignee: 'jimmy',
+    created: '2021-06-08T09:39:26.341+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This has to be done next week',
+    executionId: null,
+    owner: 'james',
+    parentTaskId: null,
+    priority: 10,
+    processDefinitionId: null,
+    processInstanceId: null,
+    taskDefinitionKey: null,
+    caseExecutionId: null,
+    caseInstanceId: 'aCaseInstanceId',
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
@@ -100,23 +153,98 @@ const taskData = [
 	status: 'pending'
   },
   {
-    id: "task-104",
-    name: "My Task 104",
-    assignee: "charles",
-    created: "2021-06-08T11:01:02.901+0000",
-    due: "2014-08-30T08:00:00.000+0000",
-    followUp: "2014-08-25T08:00:00.000+0000",
-    delegationState: "PENDING",
-    description: "This have to be done atonce",
+    id: 'task-106',
+    name: 'My Task 106',
+    assignee: 'laura',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This has to be done in two days time',
     executionId: null,
-    owner: "mary",
+    owner: 'perry',
+    parentTaskId: null,
+    priority: 30,
+    processDefinitionId: null,
+    processInstanceId: null,
+    taskDefinitionKey: null,
+    caseExecutionId: null,
+    caseInstanceId: 'aCaseInstanceId',
+    caseDefinitionId: null,
+    suspended: false,
+    formKey: null,
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
+  },
+  {
+    id: 'task-107',
+    name: 'My Task 107',
+    assignee: 'robert',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This has to be done now',
+    executionId: null,
+    owner: 'david',
+    parentTaskId: null,
+    priority: 20,
+    processDefinitionId: null,
+    processInstanceId: null,
+    taskDefinitionKey: null,
+    caseExecutionId: null,
+    caseInstanceId: 'aCaseInstanceId',
+    caseDefinitionId: null,
+    suspended: false,
+    formKey: null,
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
+  },
+  {
+    id: 'task-108',
+    name: 'My Task 108',
+    assignee: 'patricia',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This has to be done tommorrow',
+    executionId: null,
+    owner: 'francine',
+    parentTaskId: null,
+    priority: 30,
+    processDefinitionId: null,
+    processInstanceId: null,
+    taskDefinitionKey: null,
+    caseExecutionId: null,
+    caseInstanceId: 'aCaseInstanceId',
+    caseDefinitionId: null,
+    suspended: false,
+    formKey: null,
+    tenantId: null,
+	update: '<i class="material-icons">update</i>',
+	status: 'pending'
+  },
+  {
+    id: 'task-109',
+    name: 'My Task 109',
+    assignee: 'edward',
+    created: '2021-06-08T11:01:02.901+0000',
+    due: '2014-08-30T08:00:00.000+0000',
+    followUp: '2014-08-25T08:00:00.000+0000',
+    delegationState: 'PENDING',
+    description: 'This has to be done in 4 weeks time',
+    executionId: null,
+    owner: 'vicky',
     parentTaskId: null,
     priority: 10,
     processDefinitionId: null,
     processInstanceId: null,
     taskDefinitionKey: null,
     caseExecutionId: null,
-    caseInstanceId: "aCaseInstanceId",
+    caseInstanceId: 'aCaseInstanceId',
     caseDefinitionId: null,
     suspended: false,
     formKey: null,
@@ -125,6 +253,23 @@ const taskData = [
 	status: 'pending'
   }
 ];
+
+function readTaskData(id) {
+  const array = taskDataUpdate.filter( (obj) => {
+	return obj.id.toLowerCase() === id.toLowerCase();
+  });
+  return array;
+}
+
+function updateTaskData(id) {
+  const array = taskDataUpdate.map( (obj) => {
+	if(obj.id.toLowerCase() === id.toLowerCase()){
+	  obj.status = 'updated';
+	}
+	return obj;
+  });
+  return array;
+}
 
 const columnCentered = {
   headerClass: 'text-center',
@@ -189,12 +334,20 @@ function createAgGridColumnDefs(obj) {
   return columnDefs;
 }
 
+function updateAgGrid(id) {
+  console.log('data.js: updateAgGrid(): id: ', id);
+  const rowNode = global_gridOptions.api.getRowNode(id);
+  console.log('data.js: updateAgGrid(): rowNode: ', rowNode);
+  rowNode.setDataValue('status', 'updated');
+}
+
 function initAgGrid(el) {
 	
-  const rowData = taskData;
+  const rowData = taskDataUpdate;
   
-  const gridOptions = {
-	columnDefs: createAgGridColumnDefs(taskData),
+  global_gridOptions = {
+	getRowId: params => params.data.id,
+	columnDefs: createAgGridColumnDefs(taskDataUpdate),
 	rowData: rowData,
 	pagination: true,
 	paginationPageSize: 4,
@@ -230,22 +383,25 @@ function initAgGrid(el) {
 	'update'
   ];
   
-  const grid = new agGrid.Grid(el, gridOptions);
+  const grid = new agGrid.Grid(el, global_gridOptions);
   
-  gridOptions.onGridReady = () => {
-	gridOptions.api.sizeColumnsToFit();
+  global_gridOptions.onGridReady = () => {
+	global_gridOptions.api.sizeColumnsToFit();
   }
   
   function autoSizeAll() {
 	/*const allColumnIds = [];
-	gridOptions.columnApi.getAllColumns().forEach((column) => {
+	global_gridOptions.columnApi.getAllColumns().forEach((column) => {
 	  allColumnIds.push(column.getId());
 	});
   
-	gridOptions.columnApi.autoSizeColumns(allColumnIds, true);*/
-	gridOptions.api.sizeColumnsToFit();
+	global_gridOptions.columnApi.autoSizeColumns(allColumnIds, true);*/
+	global_gridOptions.api.sizeColumnsToFit();
   }
   
   window.addEventListener("resize", autoSizeAll);
+  
+  const readTask = readTaskData('task-109');
+  console.log('data.js: initAgGrid(): readTask: ', readTask);
 
 }

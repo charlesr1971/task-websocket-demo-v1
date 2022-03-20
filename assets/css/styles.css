@@ -48,3 +48,7 @@
   text-overflow: ellipsis;
   box-sizing: border-box;
 }
+
+.ag-cell-focus,.ag-cell-no-focus{
+  border:none !important;
+}
