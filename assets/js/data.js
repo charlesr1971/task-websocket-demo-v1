@@ -283,10 +283,7 @@ function updateTaskData(id) {
 const columnCentered = {
   headerClass: 'text-center',
   cellStyle: {
-    textAlign: 'center',
-    // Add the following if you are using .ag-header-cell-menu-button 
-    // and column borders are set to none.
-    // marginLeft: '-16px'
+    textAlign: 'center'
   }
 }
 
@@ -297,11 +294,6 @@ function getObjectkeys(obj) {
 function createAgGridColumnDefs(obj) {
   const keys = getObjectkeys(obj[0]);
   const columnDefs = [];
-  /*const rows = keys.map( (key) => {
-	columnDefs.push({
-	  field: key
-	});
-  });*/
   columnDefs.push({
 	field: 'id',
 	suppressSizeToFit: false
