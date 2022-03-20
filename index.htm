@@ -38,23 +38,15 @@
 		  console.log('index.htm: document.ready');
 		  initWebsocket();
 		  const agGridDiv = document.querySelector('#agGridDiv');
-		  initAgGrid(agGridDiv);
+		  //initAgGrid(agGridDiv);
+		  $initAgGrid = new initAgGrid();
+		  $initAgGrid.init(agGridDiv);
 		});
 		
     </script>
       
   </head>
     <body>
-        
-      <!--<h1 style="text-align: center;">Custom Task WebSocket Client</h2>
-      <br>
-      <div style="text-align: center;">
-        <form action="">
-          <input onclick="send_message()" value="Send Message" type="button">
-          <input id="textID" name="message" value="Hello WebSocket!" type="text"><br>
-        </form>
-      </div>
-      <div id="output"></div>-->
       
       <!-- Always shows a header, even in smaller screens. -->
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">

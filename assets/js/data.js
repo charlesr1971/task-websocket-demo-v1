@@ -258,8 +258,8 @@ function createTaskData(obj) {
   if(!('update' in obj)){
 	obj.update = '<i class="material-icons">update</i>';
   }
-  taskDataCreate.push(obj);
-  const array = taskDataCreate;
+  taskDataUpdate.push(obj);
+  const array = taskDataUpdate;
   return array;
 }
 
@@ -343,86 +343,77 @@ function createAgGridColumnDefs(obj) {
   return columnDefs;
 }
 
-function updateAgGrid(id) {
-  console.log('data.js: updateAgGrid(): id: ', id);
-  const rowNode = global_gridOptions.api.getRowNode(id);
-  console.log('data.js: updateAgGrid(): rowNode: ', rowNode);
-  rowNode.setDataValue('status', 'updated');
-}
-
-function initAgGrid(el) {
-	
-  const rowData = taskDataUpdate;
-  
-  global_gridOptions = {
-	getRowId: params => params.data.id,
-	columnDefs: createAgGridColumnDefs(taskDataUpdate),
-	rowData: rowData,
-	pagination: true,
-	paginationPageSize: 4,
-	defaultColDef: {
-	  resizable: true,
+function initAgGrid() {
+  return {
+	gridOptions: null,
+	init: function(el) {
+	  const rowData = taskDataUpdate;
+	  this.gridOptions = {
+		getRowId: params => params.data.id,
+		columnDefs: createAgGridColumnDefs(taskDataUpdate),
+		rowData: rowData,
+		pagination: true,
+		paginationPageSize: 4,
+		defaultColDef: {
+		  resizable: true,
+		},
+		onGridSizeChanged: (params) => {
+		  console.log('data.js: initAgGrid(): onGridSizeChanged(): params: ', params);
+		},
+		onColumnResized: (params) => {
+		  console.log('data.js: initAgGrid(): onColumnResized(): params: ', params);
+		}
+	  };
+	  const hiddenColumns = [
+		'due',
+		'followUp',
+		'delegationState',
+		'description',
+		'executionId',
+		'owner',
+		'parentTaskId',
+		'priority',
+		'processDefinitionId',
+		'processInstanceId',
+		'taskDefinitionKey',
+		'caseExecutionId',
+		'caseInstanceId',
+		'caseDefinitionId',
+		'suspended',
+		'formKey',
+		'tenantId',
+		'update'
+	  ];
+	  const grid = new agGrid.Grid(el, this.gridOptions);
+	  this.gridOptions.onGridReady = () => {
+		this.gridOptions.api.sizeColumnsToFit();
+		const ag20 = document.querySelector('#ag-20');
+		if(ag20){
+		  const addButton = document.createElement('a'); 
+		  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-add');
+		  addButton.setAttribute('href','javascript:void(0)');
+		  addButton.setAttribute('onclick','sendCreate()');
+		  const newContent = document.createTextNode('Add');
+		  addButton.appendChild(newContent);
+		  ag20.appendChild(addButton);
+		  componentHandler.upgradeDom();
+		}
+	  }
+	  function autoSizeAll() {
+		this.gridOptions.api.sizeColumnsToFit();
+	  }
+	  window.addEventListener("resize", autoSizeAll);
+	  const readTask = readTaskData('task-109');
+	  console.log('data.js: initAgGrid(): readTask: ', readTask);
 	},
-	onGridSizeChanged: (params) => {
-	  console.log('data.js: initAgGrid(): onGridSizeChanged(): params: ', params);
+	createAgGrid: function () {
+	  this.gridOptions.api.setRowData(taskDataUpdate);
 	},
-	onColumnResized: (params) => {
-	  console.log('data.js: initAgGrid(): onColumnResized(): params: ', params);
-	}
-  };
-  
-  const hiddenColumns = [
-	'due',
-	'followUp',
-	'delegationState',
-    'description',
-    'executionId',
-    'owner',
-    'parentTaskId',
-    'priority',
-    'processDefinitionId',
-    'processInstanceId',
-    'taskDefinitionKey',
-    'caseExecutionId',
-    'caseInstanceId',
-    'caseDefinitionId',
-    'suspended',
-    'formKey',
-    'tenantId',
-	'update'
-  ];
-  
-  const grid = new agGrid.Grid(el, global_gridOptions);
-  
-  global_gridOptions.onGridReady = () => {
-	global_gridOptions.api.sizeColumnsToFit();
-	const ag20 = document.querySelector('#ag-20');
-	if(ag20){
-	  //<a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-preview" href="#local.url#">Add</a>
-	  const addButton = document.createElement('a'); 
-	  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-add');
-	  addButton.setAttribute('href','javascript:void(0)');
-	  addButton.setAttribute('onclick','sendCreate()');
-	  const newContent = document.createTextNode('Add');
-	  addButton.appendChild(newContent);
-	  ag20.appendChild(addButton);
-	  componentHandler.upgradeDom();
+	updateAgGrid: function (id) {
+	  console.log('data.js: updateAgGrid(): id: ', id);
+	  const rowNode = this.gridOptions.api.getRowNode(id);
+	  console.log('data.js: updateAgGrid(): rowNode: ', rowNode);
+	  rowNode.setDataValue('status', 'updated');
 	}
   }
-  
-  function autoSizeAll() {
-	/*const allColumnIds = [];
-	global_gridOptions.columnApi.getAllColumns().forEach((column) => {
-	  allColumnIds.push(column.getId());
-	});
-  
-	global_gridOptions.columnApi.autoSizeColumns(allColumnIds, true);*/
-	global_gridOptions.api.sizeColumnsToFit();
-  }
-  
-  window.addEventListener("resize", autoSizeAll);
-  
-  const readTask = readTaskData('task-109');
-  console.log('data.js: initAgGrid(): readTask: ', readTask);
-
 }
