@@ -52,3 +52,12 @@
 .ag-cell-focus,.ag-cell-no-focus{
   border:none !important;
 }
+
+#ag-20 {
+  position: relative;
+}
+
+.button-add {
+  position: absolute;
+  left: 0px;
+}

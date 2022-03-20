@@ -254,6 +254,15 @@ const taskDataUpdate = [
   }
 ];
 
+function createTaskData(obj) {
+  if(!('update' in obj)){
+	obj.update = '<i class="material-icons">update</i>';
+  }
+  taskDataCreate.push(obj);
+  const array = taskDataCreate;
+  return array;
+}
+
 function readTaskData(id) {
   const array = taskDataUpdate.filter( (obj) => {
 	return obj.id.toLowerCase() === id.toLowerCase();
@@ -387,6 +396,18 @@ function initAgGrid(el) {
   
   global_gridOptions.onGridReady = () => {
 	global_gridOptions.api.sizeColumnsToFit();
+	const ag20 = document.querySelector('#ag-20');
+	if(ag20){
+	  //<a class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-preview" href="#local.url#">Add</a>
+	  const addButton = document.createElement('a'); 
+	  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-add');
+	  addButton.setAttribute('href','javascript:void(0)');
+	  addButton.setAttribute('onclick','sendCreate()');
+	  const newContent = document.createTextNode('Add');
+	  addButton.appendChild(newContent);
+	  ag20.appendChild(addButton);
+	  componentHandler.upgradeDom();
+	}
   }
   
   function autoSizeAll() {
