@@ -4,7 +4,7 @@ function xhrCreate(obj){
 
   jQuery.ajax({
 	method: 'POST',
-	url: $restEndpointUri + '' + $restApiCreate,
+	url: $restEndpointUri + '/' + $restApiCreate,
 	data: JSON.stringify(obj),
 	contentType: 'application/json; charset=utf-8',
 	success: function(data){
@@ -28,7 +28,7 @@ function xhrRead(id){
   
   jQuery.ajax({
 	method: 'GET',
-	url: $restEndpointUri + '' + $restApiRead + '/' + id,
+	url: $restEndpointUri + '/' + $restApiRead + '/' + id,
 	success: function(data){
 	  if($debug){
 		console.log('restapi.js: xhrRead(): success: data: ', data);
@@ -51,7 +51,7 @@ function xhrPatch(id, obj){
   
   jQuery.ajax({
 	method: 'PATCH',
-	url: $restEndpointUri + '' + $restApiRead + '/' + id,
+	url: $restEndpointUri + '/' + $restApiRead + '/' + id,
 	data: JSON.stringify({ 
 	  obj 
 	}),
@@ -76,7 +76,7 @@ function xhrUpdate(obj){
   
   jQuery.ajax({
 	method: 'PUT',
-	url: $restEndpointUri + '' + $restApiUpdate,
+	url: $restEndpointUri + '/' + $restApiUpdate,
 	data: JSON.stringify({ 
 	  obj 
 	}),
@@ -102,7 +102,7 @@ function xhrDelete(id){
   
   jQuery.ajax({
 	method: 'DELETE',
-	url: $restEndpointUri + '' + $restApiDelete,
+	url: $restEndpointUri + '/' + $restApiDelete,
 	data: JSON.stringify({ 
 	  id
 	}),
@@ -128,7 +128,7 @@ function xhrDeleteAll(){
   
   jQuery.ajax({
 	method: 'DELETE',
-	url: $restEndpointUri + '' + $restApiDelete + '/all',
+	url: $restEndpointUri + '/' + $restApiDelete + '/all',
 	success: function(data){
 	  if($debug){
 		console.log('restapi.js: xhrDeleteAll(): success: data: ', data);
