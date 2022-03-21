@@ -1,3 +1,4 @@
+
 let websocket = null;
 
 function initWebsocket() {
@@ -20,8 +21,8 @@ function onOpen(evt) {
 
 function onMessage(evt) {
   console.log('websocket.js: onMessage(): evt: ', evt);
-  //taskHub(evt.data);
-  taskHub('{"id":"task-105","status":"updated"}');
+  taskHub(evt.data);
+  //taskHub('{"id":"task-105","status":"updated"}');
   //taskHub('{"id":"task-100","name":"My Task 100","assignee":"john","created":"2021-06-08T09:39:26.341+0000","due":"2014-08-30T08:00:00.000+0000","followUp":"2014-08-25T08:00:00.000+0000","delegationState":"PENDING","description":"This have to be done soon","executionId":null,"owner":"alicia","parentTaskId":null,"priority":10,"processDefinitionId":null,"processInstanceId":null,"taskDefinitionKey":null,"caseExecutionId":null,"caseInstanceId":"aCaseInstanceId","caseDefinitionId":null,"suspended":false,"formKey":null,"tenantId":null,"status":"created"}');
 }
 
@@ -37,21 +38,45 @@ function doSend(message) {
 }
 
 function sendCreate() {
-  const obj = {
-	id: '',
-	status: 'created'
-  };
-  console.log('websocket.js: sendCreate(): obj: ', obj);
-  websocket.send(JSON.stringify(obj));
+  if(!$useRestApi){
+	const obj = {
+	  id: '',
+	  status: 'created'
+	};
+	console.log('websocket.js: sendCreate(): obj: ', obj);
+	websocket.send(JSON.stringify(obj));
+  }
+  else{
+	/*const id = 'task-100';
+	const array = readTaskDataCreate(id);*/
+	const rand = randomIntInc(0,(taskDataCreate.length - 1));
+	console.log('websocket.js: sendCreate(): rand: ', rand);
+	const obj = taskDataCreate[rand];
+	console.log('websocket.js: sendCreate(): obj: ', obj);
+	const array = [obj];
+	if(Array.isArray(array) && array.length > 0){
+	  console.log('websocket.js: sendCreate(): array: ', array);
+	  xhrCreate(array[0])
+	}
+  }
 }
 
 function sendUpdate(id) {
-  const obj = {
-	id,
-	status: 'updated'
-  };
-  console.log('websocket.js: sendUpdate(): obj: ', obj);
-  websocket.send(JSON.stringify(obj));
+  if(!$useRestApi){
+	const obj = {
+	  id,
+	  status: 'updated'
+	};
+	console.log('websocket.js: sendUpdate(): obj: ', obj);
+	websocket.send(JSON.stringify(obj));
+  }
+  else{
+	const array = readTaskData(id);
+	if(Array.isArray(array) && array.length > 0){
+	  console.log('websocket.js: sendUpdate(): array: ', array);
+	  xhrUpdate(array[0])
+	}
+  }
 }
 
 function taskHub(message) {
@@ -71,7 +96,6 @@ function taskHub(message) {
 	console.log('websocket.js: taskHub(): error: ', e);
   }
 }
-
 
 function createTask(obj) {
   const array = createTaskData(obj);

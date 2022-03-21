@@ -1,3 +1,4 @@
+<cfoutput>
 <html>
   <head>
   
@@ -11,9 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Chelsea+Market|Anton|Spinnaker|Oswald|Audiowide|Chonburi|Doppio+One|Faster+One|Fjalla+One|Jockey+One|Kanit|Krona+One|Limelight|Montserrat:400,700|Notable|Orbitron|Poller+One|Roboto|Roboto+Mono:300,400,500,700|Staatliches|Ubuntu+Condensed|Uncial+Antiqua|Crimson+Text|Noto+Serif&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?cache=1234567892" />
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?nocache=#RandRange(1000000,9999999)#" />
     
-    <script src="assets/js/global.js?cache=1234567890"></script>
+    <script src="assets/js/global.js?nocache=#RandRange(1000000,9999999)#"></script>
     
     <script src="assets/mdl/material.js"></script>
 	<script src="assets/mdl-selectfield/mdl-selectfield.js"></script>
@@ -25,8 +26,11 @@
       jQuery.noConflict();
     </script>
     
-    <script src="assets/js/data.js?cache=1234567891"></script>
-    <script src="assets/js/websocket.js?cache=1234567891"></script>
+    <script src="assets/js/data.js?nocache=#RandRange(1000000,9999999)#"></script>
+    <script src="assets/js/data-methods.js?nocache=#RandRange(1000000,9999999)#"></script>
+    <script src="assets/js/websocket.js?nocache=#RandRange(1000000,9999999)#"></script>
+    <script src="assets/js/restapi.js?nocache=#RandRange(1000000,9999999)#"></script>
+    <script src="assets/js/utils.js?nocache=#RandRange(1000000,9999999)#"></script>
     
     <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
@@ -37,10 +41,11 @@
 		jQuery(document).ready(function() {
 		  console.log('index.htm: document.ready');
 		  initWebsocket();
-		  const agGridDiv = document.querySelector('#agGridDiv');
+		  const agGridDiv = document.querySelector('##agGridDiv');
 		  //initAgGrid(agGridDiv);
 		  $initAgGrid = new initAgGrid();
 		  $initAgGrid.init(agGridDiv);
+		  //window.addEventListener("resize", $initAgGrid.autoSizeAll);
 		});
 		
     </script>
@@ -99,3 +104,4 @@
         
   </body>
 </html>
+</cfoutput>
