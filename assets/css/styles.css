@@ -61,3 +61,8 @@
   position: absolute;
   left: 0px;
 }
+
+.button-delete-all {
+  position: absolute;
+  left: 105px;
+}

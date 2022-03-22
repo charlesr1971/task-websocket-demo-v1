@@ -39,13 +39,14 @@
     <script language="javascript" type="text/javascript">
 		
 		jQuery(document).ready(function() {
-		  console.log('index.htm: document.ready');
+		  if($debug){
+			console.log('index.htm: document.ready');
+		  }
 		  initWebsocket();
-		  const agGridDiv = document.querySelector('##agGridDiv');
-		  //initAgGrid(agGridDiv);
+		  xhrReadAll();
+		  /*const agGridDiv = document.querySelector('##agGridDiv');
 		  $initAgGrid = new initAgGrid();
-		  $initAgGrid.init(agGridDiv);
-		  //window.addEventListener("resize", $initAgGrid.autoSizeAll);
+		  $initAgGrid.init(agGridDiv);*/
 		});
 		
     </script>

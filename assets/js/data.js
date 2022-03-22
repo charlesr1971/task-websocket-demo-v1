@@ -22,6 +22,7 @@ const taskDataCreate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'created'
   },
   {
@@ -47,6 +48,7 @@ const taskDataCreate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'created'
   },
   {
@@ -72,6 +74,7 @@ const taskDataCreate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'created'
   },
   {
@@ -97,6 +100,7 @@ const taskDataCreate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'created'
   },
   {
@@ -122,6 +126,7 @@ const taskDataCreate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'created'
   }
 ];
@@ -150,6 +155,7 @@ const taskDataUpdate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'pending'
   },
   {
@@ -175,6 +181,7 @@ const taskDataUpdate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'pending'
   },
   {
@@ -200,6 +207,7 @@ const taskDataUpdate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'pending'
   },
   {
@@ -225,6 +233,7 @@ const taskDataUpdate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'pending'
   },
   {
@@ -250,6 +259,7 @@ const taskDataUpdate = [
     formKey: null,
     tenantId: null,
 	update: '<i class="material-icons">update</i>',
+	deletes: '<i class="material-icons">delete_outline</i>',
 	status: 'pending'
   }
 ];

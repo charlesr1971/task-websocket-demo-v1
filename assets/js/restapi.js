@@ -5,6 +5,7 @@ function xhrCreate(obj){
   if(!jQuery.isEmptyObject(obj)){
 	if('update' in obj){
 	  delete obj.update;
+	  delete obj.deletes;
 	}
 	if('id' in obj){
 	  obj.id = null;
@@ -23,6 +24,7 @@ function xhrCreate(obj){
 	  if($debug){
 		console.log('restapi.js: xhrCreate(): success: data: ', data);
 	  }
+	  $verb = 'create';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -45,11 +47,44 @@ function xhrRead(id){
 	  if($debug){
 		console.log('restapi.js: xhrRead(): success: data: ', data);
 	  }
+	  $verb = 'read';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
 	  if($debugErr){
 		console.log('restapi.js: xhrRead(): error: errorMessage: ', errorMessage);
+	  }
+	}
+  });
+  
+}
+
+function xhrReadAll(){
+	  
+  jQuery.ajax({
+	method: 'GET',
+	url: $restEndpointUri + '/' + $restApiReadAll,
+	success: function(data){
+	  if($debug){
+		console.log('restapi.js: xhrReadAll(): success: data: ', data);
+	  }
+	  if(!$initAgGrid){
+		const agGridDiv = document.querySelector('#agGridDiv');
+		$initAgGrid = new initAgGrid();
+		$initAgGrid.init(agGridDiv);
+		$verb = 'read all';
+	  }
+	  //if($verb === 'read all' && $initAgGrid){
+		$taskData = data;
+		$taskData = addExtraColumnsToTaskData();
+		$initAgGrid.createAgGrid();
+		//$verb = '';
+	  //}
+	},
+	error: function(xhr, status, error){
+	  var errorMessage = xhr.status + ': ' + xhr.statusText
+	  if($debugErr){
+		console.log('restapi.js: xhrReadAll(): error: errorMessage: ', errorMessage);
 	  }
 	}
   });
@@ -64,6 +99,7 @@ function xhrPatch(id, obj){
   if(!jQuery.isEmptyObject(obj)){
 	if('update' in obj){
 	  delete obj.update;
+	  delete obj.deletes;
 	}
 	if('status' in obj){
 	  obj.status = 'PATCHED';
@@ -79,7 +115,7 @@ function xhrPatch(id, obj){
   
   jQuery.ajax({
 	method: 'PATCH',
-	url: $restEndpointUri + '/' + $restApiRead + param,
+	url: $restEndpointUri + '/' + $restApiPatch + param,
 	data: JSON.stringify({ 
 	  obj 
 	}),
@@ -87,6 +123,7 @@ function xhrPatch(id, obj){
 	  if($debug){
 		console.log('restapi.js: xhrPatch(): success: data: ', data);
 	  }
+	  $verb = 'patch';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -105,6 +142,7 @@ function xhrUpdate(obj){
   if(!jQuery.isEmptyObject(obj)){
 	if('update' in obj){
 	  delete obj.update;
+	  delete obj.deletes;
 	}
 	if('status' in obj){
 	  obj.status = 'PUT';
@@ -120,6 +158,7 @@ function xhrUpdate(obj){
 	  if($debug){
 		console.log('restapi.js: xhrUpdate(): success: data: ', data);
 	  }
+	  $verb = 'update';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -146,6 +185,7 @@ function xhrDelete(id){
 	  if($debug){
 		console.log('restapi.js: xhrDelete(): success: data: ', data);
 	  }
+	  $verb = 'delete';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -163,11 +203,12 @@ function xhrDeleteAll(){
   
   jQuery.ajax({
 	method: 'DELETE',
-	url: $restEndpointUri + '/' + $restApiDelete + '/all',
+	url: $restEndpointUri + '/' + $restApiDeleteAll + '/all',
 	success: function(data){
 	  if($debug){
 		console.log('restapi.js: xhrDeleteAll(): success: data: ', data);
 	  }
+	  $verb = 'delete all';
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
