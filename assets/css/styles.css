@@ -70,13 +70,20 @@
   font-size: 16px;
 }
 
+
+
 .button-delete-all {
   position: absolute;
   left: 65px;
+  background-color: #ff5722 !important;
   margin: 0 !important;
   height: 30px !important;
   min-width: 30px !important;
   width: 30px !important;
+}
+
+.button-delete-all.mdl-button--fab[disabled][disabled]{
+  background-color: rgba(0,0,0, 0.12) !important;
 }
 
 .button-delete-all i {
