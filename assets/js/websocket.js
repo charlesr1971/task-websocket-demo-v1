@@ -56,7 +56,7 @@ function sendCreate() {
 	const array = [obj];
 	if(Array.isArray(array) && array.length > 0){
 	  console.log('websocket.js: sendCreate(): array: ', array);
-	  xhrCreate(array[0])
+	  xhrCreate(array[0]);
 	}
   }
 }
@@ -84,11 +84,11 @@ function taskHub(message) {
 	const obj = JSON.parse(message);
 	console.log('websocket.js: taskHub(): obj: ', obj);
 	if(!jQuery.isEmptyObject(obj) && 'id' in obj && 'status' in obj){
-	  if(obj.status === 'updated'){
-		updateTask(obj);
+	  if(obj.status === 'created'){
+		createTask(obj);
 	  }
 	  else{
-		createTask(obj);
+		updateTask(obj);
 	  }
 	}
   }

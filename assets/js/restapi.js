@@ -9,6 +9,9 @@ function xhrCreate(obj){
 	if('id' in obj){
 	  obj.id = null;
 	}
+	if('status' in obj){
+	  obj.status = 'CREATE';
+	}
   }
 
   jQuery.ajax({
@@ -58,13 +61,25 @@ function xhrPatch(id, obj){
   var id = (arguments[0] != null) ? arguments[0] : null;
   var obj = (arguments[1] != null) ? arguments[1] : {};
   
-  if(!jQuery.isEmptyObject(obj) && 'update' in obj){
-	delete obj.update;
+  if(!jQuery.isEmptyObject(obj)){
+	if('update' in obj){
+	  delete obj.update;
+	}
+	if('status' in obj){
+	  obj.status = 'PATCHED';
+	}
+  }
+  
+  
+  let param = '';
+  
+  if(id && id !== ''){
+	param = '/' + id;
   }
   
   jQuery.ajax({
 	method: 'PATCH',
-	url: $restEndpointUri + '/' + $restApiRead + '/' + id,
+	url: $restEndpointUri + '/' + $restApiRead + param,
 	data: JSON.stringify({ 
 	  obj 
 	}),
@@ -87,16 +102,19 @@ function xhrUpdate(obj){
 	
   var obj = (arguments[0] != null) ? arguments[0] : {};
   
-  if(!jQuery.isEmptyObject(obj) && 'update' in obj){
-	delete obj.update;
+  if(!jQuery.isEmptyObject(obj)){
+	if('update' in obj){
+	  delete obj.update;
+	}
+	if('status' in obj){
+	  obj.status = 'PUT';
+	}
   }
   
   jQuery.ajax({
 	method: 'PUT',
 	url: $restEndpointUri + '/' + $restApiUpdate,
-	data: JSON.stringify({ 
-	  obj 
-	}),
+	data: JSON.stringify(obj),
 	contentType: 'application/json; charset=utf-8',
 	success: function(data){
 	  if($debug){

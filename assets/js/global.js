@@ -1,5 +1,5 @@
 //const $wsUri = 'ws://localhost:8080/javaee7-websocket-basic/hello';
-const $wsUri = 'ws://localhost:8080/taskservice/api/v1';
+const $wsUri = 'ws://localhost:8080/taskservice/update';
 //const $restEndpointUri = 'http://localhost:3010/api/v1/';
 const $restEndpointUri = 'http://localhost:8080/taskservice/api/v1';
 /*const $restApiCreate = 'create-data';
