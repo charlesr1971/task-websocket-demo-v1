@@ -142,16 +142,18 @@ function initAgGrid() {
 		this.gridOptions.api.sizeColumnsToFit();
 		const ag20 = document.querySelector('#ag-20');
 		if(ag20){
-		  let addButton = document.createElement('a'); 
+		  let addButton = document.createElement('button'); 
 		  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-add');
-		  addButton.setAttribute('href','javascript:void(0)');
+		  addButton.setAttribute('id','button-add');
+		  addButton.setAttribute('disabled','disabled');
 		  addButton.setAttribute('onclick','sendCreate()');
 		  let newContent = document.createTextNode('Add');
 		  addButton.appendChild(newContent);
 		  ag20.appendChild(addButton);
-		  addButton = document.createElement('a'); 
+		  addButton = document.createElement('button'); 
 		  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-delete-all');
-		  addButton.setAttribute('href','javascript:void(0)');
+		  addButton.setAttribute('id','button-delete-all');
+		  addButton.setAttribute('disabled','disabled');
 		  addButton.setAttribute('onclick','sendDeleteAll()');
 		  newContent = document.createTextNode('Delete All');
 		  addButton.appendChild(newContent);

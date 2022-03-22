@@ -59,10 +59,12 @@
 
 .button-add {
   position: absolute;
-  left: 0px;
+  left: 25px;
+  margin: 0 !important;
 }
 
 .button-delete-all {
   position: absolute;
-  left: 105px;
+  left: 95px;
+  margin: 0 !important;
 }

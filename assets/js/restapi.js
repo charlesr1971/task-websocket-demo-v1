@@ -14,6 +14,10 @@ function xhrCreate(obj){
 	  obj.status = 'CREATE';
 	}
   }
+  
+  if($debug){
+	console.log('restapi.js: xhrCreate(): obj: ', obj);
+  }
 
   jQuery.ajax({
 	method: 'POST',
@@ -39,6 +43,10 @@ function xhrCreate(obj){
 function xhrRead(id){
 	
   var id = (arguments[0] != null) ? arguments[0] : null;
+  
+  if($debug){
+	console.log('restapi.js: xhrRead(): id: ', id);
+  }
   
   jQuery.ajax({
 	method: 'GET',
@@ -106,6 +114,9 @@ function xhrPatch(id, obj){
 	}
   }
   
+  if($debug){
+	console.log('restapi.js: xhrPatch(): id: ',id,' obj: ',obj);
+  }
   
   let param = '';
   
@@ -149,6 +160,10 @@ function xhrUpdate(obj){
 	}
   }
   
+  if($debug){
+	console.log('restapi.js: xhrUpdate(): obj: ',obj);
+  }
+  
   jQuery.ajax({
 	method: 'PUT',
 	url: $restEndpointUri + '/' + $restApiUpdate,
@@ -173,6 +188,10 @@ function xhrUpdate(obj){
 function xhrDelete(id){
 	
   var id = (arguments[0] != null) ? arguments[0] : null;
+  
+  if($debug){
+	console.log('restapi.js: xhrDelete(): id: ', id);
+  }
   
   jQuery.ajax({
 	method: 'DELETE',

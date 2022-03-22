@@ -21,6 +21,14 @@ function onOpen(evt) {
   if($debug){
 	console.log('websocket.js: onOpen(): evt: ', evt);
   }
+  const buttonAdd = document.querySelector('#button-add');
+  const buttonDeleteAll = document.querySelector('#button-delete-all');
+  if(buttonAdd){
+	buttonAdd.removeAttribute('disabled');
+  }
+  if(buttonDeleteAll){
+	buttonDeleteAll.removeAttribute('disabled');
+  }
 }
 
 function onMessage(evt) {
