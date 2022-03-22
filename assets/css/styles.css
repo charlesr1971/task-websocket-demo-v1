@@ -61,10 +61,24 @@
   position: absolute;
   left: 25px;
   margin: 0 !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+}
+
+.button-add i {
+  font-size: 16px;
 }
 
 .button-delete-all {
   position: absolute;
-  left: 95px;
+  left: 65px;
   margin: 0 !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+}
+
+.button-delete-all i {
+  font-size: 16px;
 }

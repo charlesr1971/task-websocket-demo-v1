@@ -186,20 +186,26 @@ function initAgGrid() {
 		const ag20 = document.querySelector('#ag-20');
 		if(ag20){
 		  let addButton = document.createElement('button'); 
-		  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-add');
+		  addButton.setAttribute('class','mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored button-add');
 		  addButton.setAttribute('id','button-add');
 		  addButton.setAttribute('disabled','disabled');
 		  addButton.setAttribute('onclick','sendCreate()');
-		  let newContent = document.createTextNode('Add');
-		  addButton.appendChild(newContent);
+		  let addIcon = document.createElement('i'); 
+		  addIcon.setAttribute('class','material-icons');
+		  let newContent = document.createTextNode('add');
+		  addIcon.appendChild(newContent);
+		  addButton.appendChild(addIcon);
 		  ag20.appendChild(addButton);
 		  addButton = document.createElement('button'); 
-		  addButton.setAttribute('class','mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect button-delete-all');
+		  addButton.setAttribute('class','mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--primary button-delete-all');
 		  addButton.setAttribute('id','button-delete-all');
 		  addButton.setAttribute('disabled','disabled');
 		  addButton.setAttribute('onclick','sendDeleteAll()');
-		  newContent = document.createTextNode('Delete All');
-		  addButton.appendChild(newContent);
+		  addIcon = document.createElement('i'); 
+		  addIcon.setAttribute('class','material-icons');
+		  newContent = document.createTextNode('delete');
+		  addIcon.appendChild(newContent);
+		  addButton.appendChild(addIcon);
 		  ag20.appendChild(addButton);
 		  componentHandler.upgradeDom();
 		}
