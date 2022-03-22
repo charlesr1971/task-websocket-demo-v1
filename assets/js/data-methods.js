@@ -114,6 +114,33 @@ function createAgGridColumnDefs(obj) {
   return columnDefs;
 }
 
+function showButtons() {
+  const buttonAdd = document.querySelector('#button-add');
+  const buttonDeleteAll = document.querySelector('#button-delete-all');
+  if($onOpenHasListener){
+	if(buttonAdd ){
+	  const disabled = jQuery('#button-add').attr('disabled');
+	  const hasDisabled = typeof disabled !== typeof undefined && disabled !== false ? true : false;
+	  if(hasDisabled){
+		buttonAdd.removeAttribute('disabled');
+		if($debug){
+		  console.log('data-methods.js: showButtons(): buttonAdd: ', buttonAdd);
+		}
+	  }
+	}
+	if(buttonDeleteAll){
+	  const disabled = jQuery('#button-delete-all').attr('disabled');
+	  const hasDisabled = typeof disabled !== typeof undefined && disabled !== false ? true : false;
+	  if(hasDisabled){
+		buttonDeleteAll.removeAttribute('disabled');
+		if($debug){
+		  console.log('data-methods.js: showButtons(): buttonDeleteAll: ', buttonDeleteAll);
+		}
+	  }
+	}
+  }
+}
+
 function initAgGrid() {
   return {
 	gridOptions: null,
@@ -141,6 +168,7 @@ function initAgGrid() {
 		  if($debug){
 			console.log('data-methods.js initAgGrid(): onColumnResized(): params: ', params);
 		  }
+		  showButtons();
 		}
 	  };
 	  const grid = new agGrid.Grid(el, this.gridOptions);

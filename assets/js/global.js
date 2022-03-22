@@ -13,3 +13,4 @@ const $useRestApi = true;
 let $taskData = [];
 let $verb = 'READ ALL';
 let $initAgGrid = null;
+let $onOpenHasListener = false;

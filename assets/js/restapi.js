@@ -82,12 +82,9 @@ function xhrReadAll(){
 		$initAgGrid.init(agGridDiv);
 		$verb = 'read all';
 	  }
-	  //if($verb === 'read all' && $initAgGrid){
-		$taskData = data;
-		$taskData = addExtraColumnsToTaskData();
-		$initAgGrid.createAgGrid();
-		//$verb = '';
-	  //}
+	  $taskData = data;
+	  $taskData = addExtraColumnsToTaskData();
+	  $initAgGrid.createAgGrid();
 	},
 	error: function(xhr, status, error){
 	  var errorMessage = xhr.status + ': ' + xhr.statusText
