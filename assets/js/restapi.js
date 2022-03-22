@@ -1,6 +1,15 @@
 function xhrCreate(obj){
 	
   var obj = (arguments[0] != null) ? arguments[0] : {};
+  
+  if(!jQuery.isEmptyObject(obj)){
+	if('update' in obj){
+	  delete obj.update;
+	}
+	if('id' in obj){
+	  obj.id = null;
+	}
+  }
 
   jQuery.ajax({
 	method: 'POST',
@@ -49,6 +58,10 @@ function xhrPatch(id, obj){
   var id = (arguments[0] != null) ? arguments[0] : null;
   var obj = (arguments[1] != null) ? arguments[1] : {};
   
+  if(!jQuery.isEmptyObject(obj) && 'update' in obj){
+	delete obj.update;
+  }
+  
   jQuery.ajax({
 	method: 'PATCH',
 	url: $restEndpointUri + '/' + $restApiRead + '/' + id,
@@ -73,6 +86,10 @@ function xhrPatch(id, obj){
 function xhrUpdate(obj){
 	
   var obj = (arguments[0] != null) ? arguments[0] : {};
+  
+  if(!jQuery.isEmptyObject(obj) && 'update' in obj){
+	delete obj.update;
+  }
   
   jQuery.ajax({
 	method: 'PUT',
