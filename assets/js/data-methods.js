@@ -52,31 +52,36 @@ function getObjectkeys(obj) {
 }
 
 function createAgGridColumnDefs(obj) {
-  //const keys = getObjectkeys(obj[0]);
   const columnDefs = [];
   columnDefs.push({
 	field: 'id',
-	suppressSizeToFit: false
+	suppressSizeToFit: false,
+	sortable: true,
+	unSortIcon: true
   });
   columnDefs.push({
 	field: 'name',
-	suppressSizeToFit: false
+	suppressSizeToFit: false,
+	sortable: true,
+	unSortIcon: true
   });
   columnDefs.push({
 	field: 'assignee',
-	suppressSizeToFit: false
+	suppressSizeToFit: false,
+	sortable: true,
+	unSortIcon: true
   });
   columnDefs.push({
 	field: 'created',
-	suppressSizeToFit: false
+	suppressSizeToFit: false,
+	sortable: true,
+	unSortIcon: true
   });
   columnDefs.push({
 	field: 'update',
 	cellRenderer: function(params) {
 	  return '<a href="javascript:void(0);" onclick="sendUpdate(\'' + params.data.id + '\')">' + params.value + '</a>'
 	},
-	//cellStyle: {top: '8px'},
-	//headerName: 'Update',
 	headerClass: 'update-header-text-center',
 	cellStyle: {
 	  textAlign: 'center',
@@ -89,8 +94,6 @@ function createAgGridColumnDefs(obj) {
 	cellRenderer: function(params) {
 	  return '<a href="javascript:void(0);" onclick="sendDelete(\'' + params.data.id + '\')">' + params.value + '</a>'
 	},
-	//cellStyle: {top: '8px'},
-	//headerName: 'Update',
 	headerClass: 'update-header-text-center',
 	cellStyle: {
 	  textAlign: 'center',
@@ -104,7 +107,9 @@ function createAgGridColumnDefs(obj) {
 	cellStyle: {
 	  textAlign: 'center'
 	},
-	suppressSizeToFit: false
+	suppressSizeToFit: false,
+	sortable: true,
+	unSortIcon: true
   });
   return columnDefs;
 }
@@ -122,6 +127,7 @@ function initAgGrid() {
 		paginationPageSize: 4,
 		defaultColDef: {
 		  resizable: true,
+		  sortable: true
 		},
 		onGridSizeChanged: (params) => {
 		  if($debug){
