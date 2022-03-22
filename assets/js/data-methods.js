@@ -168,6 +168,15 @@ function initAgGrid() {
 		  if($debug){
 			console.log('data-methods.js initAgGrid(): onColumnResized(): params: ', params);
 		  }
+		  /***
+		  
+		  Note:
+		  
+		  We have to call this method, showButtons(), in two different places,
+		  because different browsers invoke the web socket onOpen handler,
+		  at different times in the page load life cycle
+		  
+		  ***/
 		  showButtons();
 		}
 	  };

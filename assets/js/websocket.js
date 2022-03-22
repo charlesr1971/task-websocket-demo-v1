@@ -22,10 +22,16 @@ function onOpen(evt) {
 	console.log('websocket.js: onOpen(): evt: ', evt);
   }
   $onOpenHasListener = true;
+  /***
+		  
+  Note:
+  
+  We have to call this method, showButtons(), in two different places,
+  because different browsers invoke the web socket onOpen handler,
+  at different times in the page load life cycle
+  
+  ***/
   showButtons();
-  /*if(!buttonAdd || !buttonDeleteAll){
-	onOpen(evt);
-  }*/
 }
 
 function onMessage(evt) {
