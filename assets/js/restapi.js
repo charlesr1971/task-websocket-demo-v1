@@ -137,7 +137,7 @@ function xhrDelete(id){
   
   jQuery.ajax({
 	method: 'DELETE',
-	url: $restEndpointUri + '/' + $restApiDelete,
+	url: $restEndpointUri + '/' + $restApiDelete + '/' + id,
 	data: JSON.stringify({ 
 	  id
 	}),
