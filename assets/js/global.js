@@ -1,4 +1,6 @@
+//const $wsUri = 'ws://localhost:8080/taskwebsocketservice/update';
 const $wsUri = 'ws://localhost:8080/taskservice/update';
+//const $restEndpointUri = 'http://localhost:8080/taskapiservice/api/v1';
 const $restEndpointUri = 'http://localhost:8080/taskservice/api/v1';
 const $restApiCreate = 'task';
 const $restApiRead = 'task';

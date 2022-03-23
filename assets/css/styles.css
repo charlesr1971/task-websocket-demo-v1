@@ -39,6 +39,10 @@
   justify-content: center !important;
 }
 
+.ag-cell-value i {
+  color: rgb(0, 112, 60)  !important;
+}
+
 .mdl-layout-title {
   display: inline-block;
   width: 100%;
@@ -60,6 +64,8 @@
 .button-add {
   position: absolute;
   left: 25px;
+  background-color: rgb(0, 112, 60) !important;
+  color: rgb(255, 255, 255) !important;
   margin: 0 !important;
   height: 30px !important;
   min-width: 30px !important;
@@ -75,14 +81,16 @@
 .button-delete-all {
   position: absolute;
   left: 65px;
-  background-color: #ff5722 !important;
+  /*background-color: #ff5722 !important;*/
+  background-color: rgb(0, 112, 60) !important;
+  color: rgb(255, 255, 255) !important;
   margin: 0 !important;
   height: 30px !important;
   min-width: 30px !important;
   width: 30px !important;
 }
 
-.button-delete-all.mdl-button--fab[disabled][disabled]{
+.button-delete-all.mdl-button--fab[disabled][disabled], .button-add.mdl-button--fab[disabled][disabled]{
   background-color: rgba(0,0,0, 0.12) !important;
 }
 
